@@ -28,6 +28,6 @@ tippet.init();
 The init function can accept either 'light' or 'dark'. This will inject the css for that theme. 
 
 ```js
-tippet.init('light); //white tippets with dark text
+tippet.init('light'); //white tippets with dark text
 tippet.init('dark'); //black tippets with light text
 ```
