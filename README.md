@@ -7,14 +7,14 @@ A 2KB zero dependency plugin for multimedia tooltips which move with the cursor.
 Add the content you'd like in the tippet with the "data-tippet" attribute. This content will be parsed as HTML.
 
 ```html
-<span data-tippet="Im a tippet!">Hover me</div>
+<span data-tippet="Im a tippet!">Hover me</span>
 ```
 
 
 Adding a tippet with an image would look like this:
 
 ```html
-<span data-tippet="<img src='image.png'>Im a tippet with an image!">Hover me</div>
+<span data-tippet="<img src='image.png'>Im a tippet with an image!">Hover me</span>
 ```
 
 
