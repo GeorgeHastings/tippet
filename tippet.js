@@ -15,7 +15,7 @@ var genStyleSheet = function(theme) {
       padding: 20px;
       max-width: 20em;
       background-color: ${theme === 'dark' ? '#333' : '#fff'};
-      color: ${theme === 'dark' ? '#BBB' : '#333'};
+      color: ${theme === 'dark' ? '#EEE' : '#333'};
       border-radius: 3px;
       font: inherit;
       font-size: 0.75em;
@@ -72,10 +72,14 @@ const tippet = {
     tippet.show(content);
   },
 
-  init: function(args) {
-    genStyleSheet(args.theme);
+  init: function(theme) {
+    genStyleSheet(theme ? theme : 'light');
     bindEvents();
   },
+
+  update: function() {
+    bindEvents();
+  }
 };
 
 var bindEvents = function() {
@@ -87,7 +91,7 @@ var bindEvents = function() {
   }
 };
 
-tippet.init({theme:'light'});
+tippet.init();
 
 return tippet;
 }));
