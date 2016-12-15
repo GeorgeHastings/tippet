@@ -25,7 +25,7 @@ document.getElementById('newElement').setAttribute('data-tippet', 'Dynamically a
 tippet.update();
 ```
 
-The init function can accept values 'background' for background-color and 'text' for color. 
+The init function can accept values 'background' for `background-color` and 'text' for `color`. 
 
 ```js
 //white background with black text
