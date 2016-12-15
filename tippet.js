@@ -7,15 +7,15 @@
 }(this, function () {
 
 var el;
+var theme = {background: '#fff', text: '#333'};
 
-var genStyleSheet = function(theme) {
-  var css = `.tippet {
+var genStyleSheet = function() {
+  var css = `
+    .tippet {
       position: absolute;
       display: inline-block;
       padding: 20px;
       max-width: 20em;
-      background-color: ${theme === 'dark' ? '#333' : '#fff'};
-      color: ${theme === 'dark' ? '#EEE' : '#333'};
       border-radius: 3px;
       font: inherit;
       font-size: 0.75em;
@@ -25,7 +25,7 @@ var genStyleSheet = function(theme) {
     *[data-tippet] {
       cursor: help;
     }
-    .tippet img {
+    .tippet * {
       width: 100%;
     }`;
   var head = document.head || document.getElementsByTagName('head')[0];
@@ -39,6 +39,10 @@ var genStyleSheet = function(theme) {
   head.appendChild(style);
 };
 
+var getBaseStyle = function(theme) {
+  return `background-color: ${theme.background}; color: ${theme.text};`;
+};
+
 const tippet = {
   position: function(event) {
     var winWidth = window.innerWidth;
@@ -49,6 +53,7 @@ const tippet = {
       left: ${offPageRight ? -el.offsetWidth - 10 : 10}px;
       top: ${offPageBottom ? -el.offsetHeight - 10 : 10}px;
       transform: translate3d(${event.pageX}px, ${event.pageY}px, 0);
+      ${getBaseStyle(theme)}
     `;
     el.style = style;
   },
@@ -72,8 +77,9 @@ const tippet = {
     tippet.show(content);
   },
 
-  init: function(theme) {
-    genStyleSheet(theme ? theme : 'light');
+  init: function(setTheme) {
+    theme = setTheme ? setTheme : theme;
+    genStyleSheet();
     bindEvents();
   },
 
@@ -83,11 +89,11 @@ const tippet = {
 };
 
 var bindEvents = function() {
-  var tips = document.querySelectorAll('[data-tippet]');
-  for (var i = 0; i < tips.length; i++) {
-    tips[i].onmouseenter = tippet.render;
-    tips[i].onmousemove = tippet.position;
-    tips[i].onmouseleave = tippet.hide;
+  var tippets = document.querySelectorAll('[data-tippet]');
+  for (var i = 0; i < tippets.length; i++) {
+    tippets[i].onmouseenter = tippet.render;
+    tippets[i].onmousemove = tippet.position;
+    tippets[i].onmouseleave = tippet.hide;
   }
 };
 
