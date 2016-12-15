@@ -18,11 +18,11 @@ Adding a tippet with an image would look like this:
 ```
 
 
-When dynamically adding data-tippet attributes or elements with a tippet, make sure to use the init function:
+When dynamically adding data-tippet attributes or elements with a tippet, make sure to use the update function:
 
 ```js
 document.getElementById('newElement').setAttribute('data-tippet', 'Dynamically added!');
-tippet.init();
+tippet.update();
 ```
 
 The init function can accept either 'light' or 'dark'. This will inject the css for that theme. 
