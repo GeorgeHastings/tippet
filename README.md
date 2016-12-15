@@ -25,9 +25,12 @@ document.getElementById('newElement').setAttribute('data-tippet', 'Dynamically a
 tippet.update();
 ```
 
-The init function can accept either 'light' or 'dark'. This will inject the css for that theme. 
+The init function can accept values 'background' for background-color and 'text' for color. 
 
 ```js
-tippet.init('light'); //white tippets with dark text
-tippet.init('dark'); //black tippets with light text
+//white background with black text
+tippet.init({
+  background: '#fff',
+  text: '#000'
+});
 ```
