@@ -21,7 +21,7 @@ Adding a tippet with an image would look like this:
 When dynamically adding data-tippet attributes or elements with a tippet, make sure to use the update function:
 
 ```js
-document.getElementById('newElement').setAttribute('data-tippet', 'Dynamically added!');
+newlyCreatedElement.setAttribute('data-tippet', 'Dynamically added!');
 tippet.update();
 ```
 
