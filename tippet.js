@@ -87,6 +87,12 @@ const tippet = {
     tippet.show();
   },
 
+  inject: function(content, style) {
+    var el = tippet.element();
+    el.innerHTML = content;
+    Object.assign(el.style, style);
+  },
+
   init: function(setTheme) {
     theme = setTheme ? setTheme : theme;
     genStyleSheet();
