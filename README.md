@@ -25,7 +25,7 @@ newlyCreatedElement.setAttribute('data-tippet', 'Dynamically added!');
 tippet.update();
 ```
 
-You might want to change the content/style of a tippet while it's visible. THe inject method accepts new content and an object for CSS styles:
+You might want to change the content/style of a tippet while it's visible. The inject method accepts new content and an object for CSS styles:
 
 ```js
 tippet.inject('Injected content', {
