@@ -2,7 +2,7 @@
 
 A 2KB zero dependency plugin for multimedia tooltips which move with the cursor.
 
-##Usage:
+## Usage:
 
 Add the content you'd like in the tippet with the "data-tippet" attribute. This content will be parsed as HTML.
 
@@ -23,6 +23,14 @@ When dynamically adding data-tippet attributes or elements with a tippet, make s
 ```js
 newlyCreatedElement.setAttribute('data-tippet', 'Dynamically added!');
 tippet.update();
+```
+
+You might want to change the content/style of a tippet while it's visible. THe inject method accepts new content and an object for CSS styles:
+
+```js
+tippet.inject('Injected content', {
+  'background-color': 'red'
+});
 ```
 
 The init function can accept values 'background' for `background-color` and 'text' for `color`. 
